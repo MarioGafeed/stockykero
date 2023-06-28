@@ -5,18 +5,13 @@ use Illuminate\Support\Facades\DB;
 
 class Warehouse extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         // Insert some stuff
         DB::table('warehouses')->insert(
             array(
                 'id'      => 1,
-                'name'    => 'Default Warehouse',
+                'name'    => 'المخزن الرئيسي',
                 'city'    => NULL,
                 'mobile'  => NULL,
                 'zip'     => NULL,

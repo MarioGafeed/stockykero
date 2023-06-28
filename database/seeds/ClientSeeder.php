@@ -6,27 +6,22 @@ use Illuminate\Support\Facades\DB;
 
 class ClientSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
        	// Insert some stuff
         DB::table('clients')->insert(
             array(
                 'id'     => 1,
-                'name'   => 'walk-in-customer',
+                'name'   => 'عميل نقدي',
                 'code' => 1,
                 'email' => 'walk-in-customer@example.com',
-                'country' => 'bangladesh',
-                'city' => 'dhaka',
-                'phone' => '123456780',
-                'adresse' => 'N45 , Dhaka',
+                'country' => 'Egypt',
+                'city' => 'Cairo',
+                'phone' => '01273443918',
+                'adresse' => 'غير معرف',
                 'tax_number' => NULL,
             )
-            
+
         );
     }
 }
