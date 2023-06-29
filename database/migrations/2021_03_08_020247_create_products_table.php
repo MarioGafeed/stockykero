@@ -17,12 +17,12 @@ class CreateProductsTable extends Migration {
 		{
 			$table->engine = 'InnoDB';
 			$table->integer('id', true);
-			$table->string('code', 192);
-			$table->string('Type_barcode', 192);
+			$table->string('code', 192)->nullable();
+			$table->string('Type_barcode', 192)->nullable();
 			$table->string('name', 192);
 			$table->float('cost', 10, 0);
 			$table->float('price', 10, 0);
-			$table->integer('category_id')->index('category_id');
+			$table->integer('category_id')->index('category_id')->default(1);
 			$table->integer('brand_id')->nullable()->index('brand_id_products');
 			$table->integer('unit_id')->nullable()->index('unit_id_products');
 			$table->integer('unit_sale_id')->nullable()->index('unit_id_sales');

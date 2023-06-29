@@ -4,11 +4,6 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
 
@@ -20,6 +15,8 @@ class DatabaseSeeder extends Seeder
             PermissionsSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            CategorySeeder::class,
+            UnitSeeder::class,
             UserRoleSeeder::class,
             PermissionRoleSeeder::class,
             Warehouse::class,
