@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
                 'firstname' => 'Mario',
                 'lastname' => 'Adel',
                 'username' => 'MarioAdel',
-                'email' => 'admin@example.com',
+                'email' => 'kero@gmail.com',
                 'password' => '$2y$10$IFj6SwqC0Sxrsiv4YkCt.OJv1UV4mZrWuyLoRG7qt47mseP9mJ58u',
                 'avatar' => 'no_avatar.png',
                 'phone' => '0123456789',
