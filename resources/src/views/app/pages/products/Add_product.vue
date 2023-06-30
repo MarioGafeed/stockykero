@@ -78,6 +78,41 @@
                   </validation-provider>
                 </b-col>
 
+                 <!-- Code Product"-->
+                 <b-col md="6" class="mb-2">
+                  <validation-provider name="Code Product" :rules="{ required: true}">
+                    <b-form-group
+                      slot-scope="{ valid, errors }"
+                      :label="$t('CodeProduct') + ' ' + '*'"
+                    >
+                      <div class="input-group">
+                        <b-form-input
+                          :class="{'is-invalid': !!errors.length}"
+                          :state="errors[0] ? false : (valid ? true : null)"
+                          aria-describedby="CodeProduct-feedback"
+                          type="text"
+                          v-model="product.code"
+                        ></b-form-input>
+                        <div class="input-group-append">
+                          <span class="input-group-text">
+                            <a @click="generateNumber()">
+                              <i class="i-Bar-Code cursor-pointer"></i>
+                            </a>
+                          </span>
+                        </div>
+                        <b-form-invalid-feedback id="CodeProduct-feedback">{{ errors[0] }}</b-form-invalid-feedback>
+                      </div>
+                      <span>{{$t('Scan_your_barcode_and_select_the_correct_symbology_below')}}</span>
+                      <b-alert
+                        show
+                        variant="danger"
+                        class="error mt-1"
+                        v-if="code_exist !=''"
+                      >{{code_exist}}</b-alert>
+                    </b-form-group>
+                  </validation-provider>
+                </b-col>
+
                 <!-- Stock Alert -->
                 <b-col md="6" class="mb-2" v-if="product.type != 'is_service'">
                   <validation-provider
