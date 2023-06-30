@@ -78,7 +78,7 @@
                   </validation-provider>
                 </b-col>
 
-                 <!-- Code Product"-->
+                 <!-- Code Products"-->
                  <b-col md="6" class="mb-2">
                   <validation-provider name="Code Product" :rules="{ required: true}">
                     <b-form-group
