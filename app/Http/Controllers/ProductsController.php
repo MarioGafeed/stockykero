@@ -166,16 +166,6 @@ class ProductsController extends BaseController
            
             // define validation rules for product
             $productRules = [
-                'code'         => [
-                    'required',
-                    Rule::unique('products')->where(function ($query) {
-                        return $query->where('deleted_at', '=', null);
-                    }),
-
-                    Rule::unique('product_variants')->where(function ($query) {
-                        return $query->where('deleted_at', '=', null);
-                    }),
-                ],
                 'name'         => 'required',
                 'Type_barcode' => 'required',
                 'category_id'  => 'required',
@@ -314,7 +304,7 @@ class ProductsController extends BaseController
             // validate the request data
             $validatedData = $request->validate($productRules, [
                 'code.unique'   => 'Product code already used.',
-                'code.required' => 'This field is required',
+                
             ]);
 
 
@@ -468,18 +458,7 @@ class ProductsController extends BaseController
         try {
             
              // define validation rules for product
-             $productRules = [
-                'code'         => [
-                    'required',
-
-                    Rule::unique('products')->ignore($id)->where(function ($query) {
-                        return $query->where('deleted_at', '=', null);
-                    }),
-
-                    Rule::unique('product_variants')->ignore($id, 'product_id')->where(function ($query) {
-                        return $query->where('deleted_at', '=', null);
-                    }),
-                ],
+             $productRules = [              
                 'name'        => 'required',
                 'category_id' => 'required',
                 'tax_method'  => 'required',
@@ -621,7 +600,6 @@ class ProductsController extends BaseController
             // validate the request data
             $validatedData = $request->validate($productRules, [
                 'code.unique'   => 'Product code already used.',
-                'code.required' => 'This field is required',
             ]);
 
 
@@ -1619,7 +1597,7 @@ class ProductsController extends BaseController
 
             $validator = validator()->make($data, [
                 '*.name' => 'required',
-                '*.code' => 'required|unique:products',
+                '*.code' => 'unique:products',
             ]);
 
             if ($validator->fails()) {
